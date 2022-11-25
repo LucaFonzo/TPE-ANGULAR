@@ -10,9 +10,16 @@ import { Movies } from '../movies-list/movies';
 })
 export class FavouritesListComponent implements OnInit {
   favouriteList$!: Observable<Movies[]>;
-  constructor(private list: MoviesFavouritesService) {
+  constructor(
+    private list: MoviesFavouritesService,
+    private favouritesListService: MoviesFavouritesService
+  ) {
     this.favouriteList$ = list.favouritesList;
   }
 
   ngOnInit(): void {}
+
+  removeFavourites(movie: Movies): void {
+    this.favouritesListService.removeFavourites(movie);
+  }
 }

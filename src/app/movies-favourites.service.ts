@@ -21,5 +21,10 @@ export class MoviesFavouritesService {
     }
     this._favouritesSubject.next(this._favouritesList);
   }
+
+  removeFavourites(movie: Movies): void {
+    this._favouritesList = this._favouritesList.filter((v1) => v1 != movie);
+    this._favouritesSubject.next(this._favouritesList);
+  }
 }
 
