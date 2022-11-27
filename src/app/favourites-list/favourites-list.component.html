@@ -1,13 +1,13 @@
-<table class="table">
+<table class="table mt-3">
   <thead>
-    <td></td>
-    <td>Nombre</td>
-    <td>Fecha estreno</td>
+    <td>Imagen:</td>
+    <td>Nombre:</td>
+    <td>Fecha estreno:</td>
   </thead>
   <tr *ngFor="let movie of favouriteList$ | async">
-    <td><img src="{{movie.image}}" alt="{{movie.name}}"></td>
+    <td><img src="{{movie.image}}" class="image-favourites" alt="{{movie.name}}"></td>
     <td>{{movie.name}}</td>
-    <td>{{movie.premiere_date}}</td>
+    <td>{{movie.premiere_date | date}}</td>
     <td><button class="btn" (click)="removeFavourites(movie)"><i class="fa-solid fa-trash"></i></button></td>
   </tr>
 </table>

@@ -1,3 +1,4 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
@@ -14,7 +15,7 @@ export class MoviesDataService {
     return this.http.get<Movies[]>(URL).pipe(
       tap((movies: Movies[]) =>
         movies.forEach((movie) => {
-          if (movie.premiere_date > Date.now() - DAYS_TO_BE_PREMIERE) {
+          if (movie.premiere_date > new Date()) {
             movie.isPremiere = true;
           } else {
             movie.isPremiere = false;

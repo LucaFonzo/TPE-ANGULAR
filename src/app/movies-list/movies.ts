@@ -1,7 +1,7 @@
 export interface Movies {
   name: string,
   description: string,
-  premiere_date: number,
+  premiere_date: Date,
   image: string,
   isPremiere: boolean
 }
